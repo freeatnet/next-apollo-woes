@@ -204,3 +204,10 @@ info All dependencies
 * Page loads, showing "loading..." message
 * Inspecting the page, I find `__NEXT_DATA__` very obviously contains query result
 * However, the page never shows the results, and no errors appear in the Next dev server or the browser JS console
+
+
+## Solved!
+
+1. I stumble upon https://github.com/adamsoffer/next-apollo/issues/37#issuecomment-500664154
+2. I decide that might be the source for the latest installation / implementation details
+3. I switch to `useQuery` and now everything works!
