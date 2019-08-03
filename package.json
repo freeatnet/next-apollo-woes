@@ -8,7 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.6.0",
+    "apollo-link-http": "^1.5.15",
     "graphql": "^14.4.2",
+    "graphql-tag": "^2.10.1",
     "next": "9.0.3",
     "next-apollo": "^3.0.3",
     "react": "16.8.6",

@@ -1,10 +1,22 @@
+import gql from "graphql-tag";
 import React from "react";
+import { Query } from "react-apollo";
 import Link from "next/link";
 import Head from "next/head";
 
 import withData from "../lib/apollo";
 
 import Nav from "../components/nav";
+
+const GET_POSTS = gql`
+  query {
+    allPosts {
+      id
+      title
+      url
+    }
+  }
+`;
 
 const Home = () => (
   <div>
@@ -21,24 +33,25 @@ const Home = () => (
       </p>
 
       <div className="row">
-        <Link href="https://github.com/zeit/next.js#getting-started">
-          <a className="card">
-            <h3>Getting Started &rarr;</h3>
-            <p>Learn more about Next.js on GitHub and in their examples</p>
-          </a>
-        </Link>
-        <Link href="https://github.com/zeit/next.js/tree/master/examples">
-          <a className="card">
-            <h3>Examples &rarr;</h3>
-            <p>Find other example boilerplates on the Next.js GitHub</p>
-          </a>
-        </Link>
-        <Link href="https://github.com/zeit/next.js">
-          <a className="card">
-            <h3>Create Next App &rarr;</h3>
-            <p>Was this tool helpful? Let us know how we can improve it!</p>
-          </a>
-        </Link>
+        <Query query={GET_POSTS}>
+          {(loading, error, data) => {
+            if (loading) return "Loading...";
+            if (error) return `Error: ${error}`;
+
+            const { allPosts } = data;
+            return (
+              <>
+                {allPosts.map(({ id, title, url }) => (
+                  <Link key={id} href={url}>
+                    <a className="card">
+                      <h3>{title}</h3>
+                    </a>
+                  </Link>
+                ))}
+              </>
+            );
+          }}
+        </Query>
       </div>
     </div>
 
