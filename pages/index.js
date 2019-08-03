@@ -33,7 +33,7 @@ const Home = () => (
       </p>
 
       <div className="row">
-        <Query query={GET_POSTS}>
+        <Query query={GET_POSTS} notifyOnNetworkStatusChange={true}>
           {(loading, error, data) => {
             if (loading) return "Loading...";
             if (error) return `Error: ${error}`;

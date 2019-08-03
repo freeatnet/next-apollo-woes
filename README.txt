@@ -118,7 +118,28 @@ info All dependencies
 Hooray!
 
 ## Next steps
-1. Adding query as per https://github.com/apollographql/react-apollo#usage
+1. Adding query as per https://github.com/apollographql/react-apollo#usage, with Query component:
+```
+<Query query={GET_POSTS}>
+  {(loading, error, data) => {
+    if (loading) return "Loading...";
+    if (error) return `Error: ${error}`;
+
+    const { allPosts } = data;
+    return (
+      <>
+        {allPosts.map(({ id, title, url }) => (
+          <Link key={id} href={url}>
+            <a className="card">
+              <h3>{title}</h3>
+            </a>
+          </Link>
+        ))}
+      </>
+    );
+  }}
+</Query>
+```
 2. Find `graphql-tag` missing
 3. Add that
 
@@ -145,3 +166,41 @@ Invariant Violation: Could not find "client" in the context or passed in as a pr
     at _next (/project-path/.next/server/static/development/pages/_document.js:228:9)
     at /project-path/.next/server/static/development/pages/_document.js:235:7
 ```
+
+## Trying to fix by moving to `react-apollo@beta`
+
+```
+$ yarn add react-apollo@3.0.0-beta.4
+yarn add v1.17.3
+[1/4] 🔍  Resolving packages...
+Couldn't find any versions for "react-apollo" that matches "next"
+? Please choose a version of "react-apollo" from this list: 3.0.0-beta.4
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+warning " > next-apollo@3.0.3" has incorrect peer dependency "next@^8.1.0".
+warning "next-apollo > @apollo/react-common@0.1.0-beta.9" has unmet peer dependency "apollo-utilities@^1.3.2".
+warning "react-apollo > @apollo/react-hooks@0.1.0-beta.11" has unmet peer dependency "apollo-client@^2.6.3".
+warning "react-apollo > @apollo/react-components@0.1.0-beta.8" has unmet peer dependency "apollo-cache@^1.3.2".
+warning "react-apollo > @apollo/react-components@0.1.0-beta.8" has unmet peer dependency "apollo-client@^2.6.3".
+warning "react-apollo > @apollo/react-components@0.1.0-beta.8" has unmet peer dependency "apollo-link@^1.2.12".
+warning "react-apollo > @apollo/react-components@0.1.0-beta.8" has unmet peer dependency "apollo-utilities@^1.3.2".
+warning "react-apollo > @apollo/react-hoc@0.1.0-beta.8" has unmet peer dependency "apollo-client@^2.6.3".
+warning " > react-apollo@3.0.0-beta.4" has unmet peer dependency "apollo-client@^2.6.3".
+[4/4] 🔨  Building fresh packages...
+
+success Saved lockfile.
+success Saved 3 new dependencies.
+info Direct dependencies
+└─ react-apollo@3.0.0-beta.4
+info All dependencies
+├─ @apollo/react-hoc@0.1.0-beta.8
+├─ hoist-non-react-statics@3.3.0
+└─ react-apollo@3.0.0-beta.4
+✨  Done in 72.00s.
+```
+
+
+## Observed: slight improvement?
+* Page loads, showing "loading..." message
+* Inspecting the page, I find `__NEXT_DATA__` very obviously contains query result
+* However, the page never shows the results, and no errors appear in the Next dev server or the browser JS console

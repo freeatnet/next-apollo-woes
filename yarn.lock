@@ -10,6 +10,28 @@
     ts-invariant "^0.4.4"
     tslib "^1.10.0"
 
+"@apollo/react-components@^0.1.0-beta.8":
+  version "0.1.0-beta.8"
+  resolved "https://registry.yarnpkg.com/@apollo/react-components/-/react-components-0.1.0-beta.8.tgz#bc6240de691b93da0e66a8e32d13fc98b80ab3f8"
+  integrity sha512-tLj9rEW9EZzXein6XG50jk4K9mJq0a2XwdZ/0y1gK3ELc41dOB20kmYknT2+j+RhG6CU5HkBfE1yDmXc9yt9PA==
+  dependencies:
+    "@apollo/react-common" "^0.1.0-beta.9"
+    "@apollo/react-hooks" "^0.1.0-beta.11"
+    prop-types "^15.7.2"
+    ts-invariant "^0.4.4"
+    tslib "^1.10.0"
+
+"@apollo/react-hoc@^0.1.0-beta.8":
+  version "0.1.0-beta.8"
+  resolved "https://registry.yarnpkg.com/@apollo/react-hoc/-/react-hoc-0.1.0-beta.8.tgz#c491f49d0990b2fb54be81bad625e2833ac87f18"
+  integrity sha512-Tsou8uV89oabikJJTHkDdy/VB6+EOVUSm3AQcnG8pptqSEmpxREQxp9RrSNS/CMzSJo6TyE5jH5GLczyf7x4gg==
+  dependencies:
+    "@apollo/react-common" "^0.1.0-beta.9"
+    "@apollo/react-components" "^0.1.0-beta.8"
+    hoist-non-react-statics "^3.3.0"
+    ts-invariant "^0.4.4"
+    tslib "^1.10.0"
+
 "@apollo/react-hooks@^0.1.0-beta.11":
   version "0.1.0-beta.11"
   resolved "https://registry.yarnpkg.com/@apollo/react-hooks/-/react-hooks-0.1.0-beta.11.tgz#3b12836fb6fd944767757f5c7cb477ba880f6d52"
@@ -20,7 +42,7 @@
     ts-invariant "^0.4.4"
     tslib "^1.10.0"
 
-"@apollo/react-ssr@0.1.0-beta.1":
+"@apollo/react-ssr@0.1.0-beta.1", "@apollo/react-ssr@^0.1.0-beta.1":
   version "0.1.0-beta.1"
   resolved "https://registry.yarnpkg.com/@apollo/react-ssr/-/react-ssr-0.1.0-beta.1.tgz#9e4c10f8b7e8e0c30564b0409ca787160fafe924"
   integrity sha512-09AvAjrk3g3n5X4S5gsGOw2nYDlQ4ep3Qr4bPiQkhFM9IeYGQ6rWSaZIcAJDFL4IwnwdJQtoQDYXB1Muc9nuyw==
@@ -2900,11 +2922,6 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
-lodash.isequal@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
-  integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
-
 lodash.isfunction@3.0.9:
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/lodash.isfunction/-/lodash.isfunction-3.0.9.tgz#06de25df4db327ac931981d1bdb067e5af68d051"
@@ -3825,18 +3842,16 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-apollo@^2.5.8:
-  version "2.5.8"
-  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-2.5.8.tgz#c7a593b027efeefdd8399885e0ac6bec3b32623c"
-  integrity sha512-60yOQrnNosxU/tRbOxGDaYNLFcOKmQqxHPhxyvKTlGIaF/rRCXQRKixUgWVffpEupSHHD7psY5k5ZOuZsdsSGQ==
+react-apollo@^3.0.0-beta.4:
+  version "3.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-3.0.0-beta.4.tgz#bc4bfb5c2015d7098f16ef107c5adc916bd3b515"
+  integrity sha512-wA3rMe6qoqFWUJ7//n+lsmcsRfMULdysTi2ldr2ribYZdKa9ZhW0uQoA754m0oN60TrSh2HG117WBU4LnhXKkQ==
   dependencies:
-    apollo-utilities "^1.3.0"
-    fast-json-stable-stringify "^2.0.0"
-    hoist-non-react-statics "^3.3.0"
-    lodash.isequal "^4.5.0"
-    prop-types "^15.7.2"
-    ts-invariant "^0.4.2"
-    tslib "^1.9.3"
+    "@apollo/react-common" "^0.1.0-beta.9"
+    "@apollo/react-components" "^0.1.0-beta.8"
+    "@apollo/react-hoc" "^0.1.0-beta.8"
+    "@apollo/react-hooks" "^0.1.0-beta.11"
+    "@apollo/react-ssr" "^0.1.0-beta.1"
 
 react-dom@16.8.6:
   version "16.8.6"
@@ -4543,7 +4558,7 @@ trim-right@^1.0.1:
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
   integrity sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM=
 
-ts-invariant@^0.4.0, ts-invariant@^0.4.2, ts-invariant@^0.4.4:
+ts-invariant@^0.4.0, ts-invariant@^0.4.4:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/ts-invariant/-/ts-invariant-0.4.4.tgz#97a523518688f93aafad01b0e80eb803eb2abd86"
   integrity sha512-uEtWkFM/sdZvRNNDL3Ehu4WVpwaulhwQszV8mrtcdeE8nN00BV9mAmQ88RkrBhFgl9gMgvjJLAQcZbnPXI9mlA==
