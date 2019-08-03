@@ -8,8 +8,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "graphql": "^14.4.2",
     "next": "9.0.3",
+    "next-apollo": "^3.0.3",
     "react": "16.8.6",
+    "react-apollo": "^2.5.8",
     "react-dom": "16.8.6"
   }
 }
